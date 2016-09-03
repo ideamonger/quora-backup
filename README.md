@@ -22,7 +22,7 @@ This creates a popup window or new tab containing a list of your answers, in a f
 
 `[["https://www.quora.com/Do-classical-mechanics-work-beyond-the-speed-of-light/answer/Brian-Bi","Added Fri"],["https://www.quora.com/Are-competitive-programmers-happy-when-working-as-software-engineers/answer/Brian-Bi","Added Thu"],["https://www.quora.com/How-did-Brian-Bi-not-know-it-was-Chinese-New-Year-today/answer/Brian-Bi","Added Thu"],["https://www.quora.com/How-many-hours-of-studies-did-Brian-Bi-put-in-per-day-in-order-to-prepare-for-the-IChO/answer/Brian-Bi","Added Thu"]`...
 
-Copy and paste the entire contents of the window or tab into a text editor and save it as a file, `answers.json`.
+Copy and paste the entire contents of the window or tab into a text editor and save it as a file, `answers.json` in the same folder as your crawler (where crawler.py resides)
 
 Go back to your browser, type in the following URL, and press Enter:
 
@@ -34,11 +34,11 @@ Again a new window or tab should pop up, showing the date in a numeric format, w
 
 Suppose you installed the scripts in `/home/brian/quora-backup`. You can run the crawler as follows:
 
-`/home/brian/quora-backup/crawler.py answers.json /home/brian/quora-answers --origin_timestamp=${TIMESTAMP} --origin_timezone=${OFFSET}`
+`/home/brian/quora-backup/crawler.py /home/brian/quora-backup/answers.json /home/brian/quora-answers --origin_timestamp=${TIMESTAMP} --origin_timezone=${OFFSET}`
 
-replacing `${TIMESTAMP}` with the timestamp value previously obtained from the browser, and `${OFFSET}` with the time zone offset value.
+replacing the entire sequence between single quotation marks, including ${} `${TIMESTAMP}` with the timestamp value previously obtained from the browser, and `${OFFSET}` with the time zone offset value. So, if the values are for timestamp 1472909838279, after equal all you need is the number, not $ or {}.
 
-This creates a new directory, `/home/brian/quora-answers`, and populates it with the answers specified, after downloading them from Quora. It also generates a timestamp in YYYY-MM-DD format for each answer.
+Running the crawler creates a new directory, `/home/brian/quora-answers`, and populates it with the answers specified, after downloading them from Quora. It also generates a timestamp in YYYY-MM-DD format for each answer. This will take a while, as each answer is parsed individually. Be patient...
 
 ## Converting answers to a standalone format
 
